@@ -1,0 +1,6 @@
+fastapi==0.111.0
+uvicorn[standard]==0.30.1
+# Melo + deps
+# We install Melo from source in Dockerfile (editable).
+# Add runtime libs here that Melo commonly uses.
+unidic==1.1.0

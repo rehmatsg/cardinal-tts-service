@@ -1,0 +1,15 @@
+# Cardinal's text-to-speech service
+
+## Local (Docker)
+docker build -t melo-api .
+docker run --rm -p 8000:8000 melo-api
+# Open: http://localhost:8000/healthz
+
+## Local (Python)
+python3.9 -m venv .venv && . .venv/bin/activate
+pip install -r requirements.txt
+git clone https://github.com/myshell-ai/MeloTTS.git
+cd MeloTTS && pip install -e . && cd ..
+python -m unidic download
+MELO_PRELOAD_LANGUAGES=EN python app.py  # or via uvicorn:
+uvicorn app:app --host 0.0.0.0 --port 8000
